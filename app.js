@@ -21,7 +21,8 @@ $("#addTrainBtn").on("click", function(){
 		
 	database.ref().push({
 		train: train,
-			
+		destination: destination,
+		frequency: frequency,
 	});
 
 	$("#trainField").val("");
