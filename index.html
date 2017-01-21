@@ -10,18 +10,16 @@
 
 		<div class="trainDisplay">
 			<table>
-				<tr>
-					<th>Train</th>
-					<th>Destination</th>
-					<th>Frequency(In minutes)</th>
-					<th>Next Arrival</th>
-				</tr>
-				<tr>
-					<td>NJ Transit</td>
-					<td>Newark</td>
-					<td>60</td>
-					<td>12:30</td>
-				</tr>
+				<thead>
+					<tr>
+						<th>Train</th>
+						<th>Destination</th>
+						<th>Frequency(In minutes)</th>
+					</tr>
+				</thead>
+				<tbody id="tbody">
+					
+				</tbody>
 			</table>
 			
 
@@ -31,8 +29,13 @@
 
 		<div class="addTrainForm">
 			<form>
+				<label for="trainName">Add Train by Name</label>
+				<input type="text" name="trainName" id="trainField">
+				<label for="destination">Add Train's Destination</label>
+				<input type="text" name="destination" id="desField">
+				<label for="frequency">Add Frequency(in minutes)</label>
+				<input type="text" name="frequency" id="freqField">
 				<button id="addTrainBtn" type="button">Add Train</button>
-				
 			</form>
 		</div>
 

@@ -8,17 +8,35 @@ var config = {
   
 	firebase.initializeApp(config);
 
-	var database = firebase.database();
-	var train = "";
-	var	destination = "";
-	var	frequency = ""
+var database = firebase.database();
+var train = '';
+var	destination = '';
+var	frequency = '';
 	
-	$("#addTrainBtn").on("click", function(){
-		trainCounter++;
-		database.ref().push({
-			train: train,
-			destination: destination,
-			frequency: frequency
-		});
+$("#addTrainBtn").on("click", function(){
+		
+	train = $("#trainField").val();
+	destination = $("desField").val();
+	frequency = $("freqField").val();
+		
+	database.ref().push({
+		train: train,
+			
 	});
+
+	$("#trainField").val("");
+	$("desField").val("");
+	$("freqField").val("");
+
+	return false;
+});
+
+database.ref().on("child_added", function(snapshot){
+	var trainRow = $("<tr>");
+	var trainCell = $("<td>");
+		trainCell.append(snapshot.val().train);
+
+	trainRow.append(trainCell);
+	trainRow.appendTo($("#tbody"));
+});
 
